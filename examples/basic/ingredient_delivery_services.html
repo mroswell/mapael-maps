@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--
+
+    http://arizona-organics.com/when-and-where-we-deliver.php
+
+
+RelayFoods.com
+https://www.relayfoods.com/about/doorstep
+    Right now, Doorstep is available in Charlottesville, Baltimore, DC, Richmond, The Triangle, and surrounding zip codes.
+
+
+peapod
+Chicagoland, Milwaukee, S.E. Wisconsin, Indianapolis
+Connecticut, Massachusetts, Rhode Island, Southern New Hampshire
+New York, New Jersey
+Maryland, Virginia, Washington D.C.
+Philadelphia, S.E. Pennsylvania, Central Pennsylvania
+
+
+amazonFresh
+prime fresh
+
+Customers in Seattle, New York City and Philadelphia are greeted with this message upon logging into their AmazonFresh accounts this weekend: “AmazonFresh is now available exclusively to Prime Fresh members.”
+
+
+    https://fromthefarmer.com/pages/faqs
+Where do you deliver
+    We currently deliver to local customers in hundreds of zip codes throughout Virginia, Washington, D.C., and Maryland. To see if you’re in our local delivery area, please input your address on our homepage!
+
+http://community.hometownharvest.com/
+
+prudent produce
+https://www.prudentproduce.net/where-we-deliver
+Where We Deliver
+We are currently serving Central Iowa. This would include, but not necessarily limited to, the counties of Polk, Warren, Dallas and Story. Our delivery area is growing all the time, and we really aren't the best at drawing maps, so if you aren't included on our map, send us a message and we'll see what we can do!
+
+NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign up today to reserve your spot!
+
+
+    -->
+
+    <title>Map with a legend for areas</title>
+    <style type="text/css">
+        body {
+            color: #5d5d5d;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        /* Specific mapael css class are below
+         * 'mapael' class is added by plugin
+        */
+
+        .mapael .map {
+            position: relative;
+        }
+
+        .mapael .mapTooltip {
+            position: absolute;
+            background-color: #fff;
+            moz-opacity: 0.70;
+            opacity: 0.70;
+            filter: alpha(opacity=70);
+            border-radius: 10px;
+            padding: 10px;
+            z-index: 1000;
+            max-width: 200px;
+            display: none;
+            color: #343434;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js" charset="utf-8"></script>
+    <script src="../../js/jquery.mapael.js" charset="utf-8"></script>
+    <script src="../../js/maps/france_departments.js" charset="utf-8"></script>
+    <script src="../../js/maps/world_countries.js" charset="utf-8"></script>
+    <script src="../../js/maps/usa_states.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#relayfoods").mapael({
+                map: {
+                    name: "usa_states",
+                    defaultArea: {
+                        attrs: {
+                            stroke: "#fff",
+                            "stroke-width": 1
+                        },
+                        attrsHover: {
+                            "stroke-width": 2
+                        }
+                    }
+                },
+                legend: {
+                    area: {
+                        title: "Delivery Legend",
+                        slices: [
+                            {
+                                min: 500000,
+                                max: 1000000,
+                                attrs: {
+                                    fill: "#ee9050"
+                                },
+                                label: "Serves portions of the state"
+                            },
+                            {
+                                min: 1000000,
+                                attrs: {
+                                    fill: "#e76106"
+                                },
+                                label: "Serves the whole state"
+                            }
+                        ]
+                    }
+                },
+                areas: {
+                    "MD": {
+                        value: "500001",
+                        href: "#",
+                        tooltip: {content: "<span style=\"font-weight:bold;\">Maryland</span><br />Baltimore"}
+                    },
+                    "VA": {
+                        value: "500001",
+                        href: "#",
+                        tooltip: {content: "<span style=\"font-weight:bold;\">Virginia</span><br />Charlottesville, Richmond"}
+                    },
+                    "DC": {
+                        value: "2000550",
+                        href: "#",
+                        tooltip: {content: "<span style=\"font-weight:bold;\">Washington DC</span><br />"}
+                    },
+                  "NC": {
+                    value: "20000000",
+                    href: "#",
+                    tooltip: {content:"<span style=\"font-weight:bold;\">North Carolina</span><br />Raleigh, Durham and Chapel Hill, and surrounding zipcodes "}
+
+                  }
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+
+    <h1>RelayFoods.com</h1>
+
+    <div id="relayfoods" class="mapcontainer">
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+        <div class="areaLegend">
+            <span>Alternative content for the legend</span>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

@@ -2065,10 +2065,10 @@
                         "stroke-width": 1,
                         "stroke-linejoin": "round"
                     },
-                    attrsHover: {
-                        fill: "#f38a03",
-                        animDuration: 300
-                    },
+//                    attrsHover: {
+//                        fill: "#f38a03",
+//                        animDuration: 300
+//                    },
                     text: {
                         position: "inner",
                         margin: 10,
