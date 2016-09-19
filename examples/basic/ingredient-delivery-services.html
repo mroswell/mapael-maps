@@ -95,41 +95,41 @@ NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign
 <script src="../../js/maps/usa_states.js" charset="utf-8"></script>
 
 <script type="text/javascript">
-  $( document ).ready(function() {
-    var mapSettings = {
-      name: "usa_states",
-      defaultArea: {
-        attrs: {
-          stroke: "#fff",
-          "stroke-width": 1
-        },
-        attrsHover: {
-          "stroke-width": 2
-        }
+  var mapSettings = {
+    "name": "usa_states",
+    "defaultArea": {
+      "attrs": {
+        "stroke": "#fff",
+        "stroke-width": 1
+      },
+      "attrsHover": {
+        "stroke-width": 2
       }
-    };
-    var legendSettings = {
-      area: {
-        title: "Legend",
-        slices: [
-          {
-            min: 5,
-            max: 9,
-            attrs: {
-              fill: "#BE7340"
-            },
-            label: "Serves portions of the state"
+    }
+  };
+  var legendSettings = {
+    area: {
+      title: "Legend",
+      slices: [
+        {
+          min: 5,
+          max: 9,
+          attrs: {
+            fill: "#BE7340"
           },
-          {
-            min: 10,
-            attrs: {
-              fill: "#e76106"
-            },
-            label: "Serves the whole state"
-          }
-        ]
-      }
-    };
+          label: "Serves portions of the state"
+        },
+        {
+          min: 10,
+          attrs: {
+            fill: "#e76106"
+          },
+          label: "Serves the whole state"
+        }
+      ]
+    }
+  };
+  jQuery(function($){
     $("#prudentproduce").mapael({
       map: mapSettings,
       legend: legendSettings,
@@ -239,44 +239,51 @@ NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign
       }
     });
   });
+
 </script>
 </head>
 
 <body>
 <div class="container">
   <div id="peapod" class="mapcontainer">
-    <h1>PeaPod.com</h1>
-    <div class="map">
-      <span>Alternative content for the map</span>
-    </div>
-  </div>
-  <div id="prudentproduce" class="mapcontainer">
+
     <div class="areaLegend">
       <span>Alternative content for the legend</span>
     </div>
+    <h1>PeaPod.com</h1>
+
+    <div class="map">
+      <span>Alternative content for the map</span>
+    </div>
+
+  </div>
+  <div id="prudentproduce" class="mapcontainer">
     <h1>Prudent Produce</h1>
     <div class="map">
       <span>Alternative content for the map</span>
     </div>
-  </div>
-  <div id="test" class="mapcontainer">
-    <div class="areaLegend">
+    <div class="areaLegend" style="display:none">
       <span>Alternative content for the legend</span>
     </div>
+  </div>
+  <div id="test" class="mapcontainer">
     <h1>Test</h1>
     <div class="map">
       <span>Alternative content for the map</span>
     </div>
+    <div class="areaLegend"  style="display:none">
+      <span>Alternative content for the legend</span>
+    </div>
   </div>
   <div id="relayfoods" class="mapcontainer">
-    <h1>RelayFoods.com</h1>
+    <h1>RelayFoods</h1>
     <div class="map">
       <span>Alternative content for the map</span>
     </div>
+    <div class="areaLegend"  style="display:none">
+      <span>Alternative content for the legend</span>
+    </div>
   </div>
-
 </div>
-
-
 </body>
 </html>
