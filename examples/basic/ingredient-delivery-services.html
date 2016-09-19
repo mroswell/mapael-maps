@@ -141,6 +141,17 @@ NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign
         }
       }
     });
+    $("#test").mapael({
+      map: mapSettings,
+      legend: legendSettings,
+      areas: {
+        "IA": {
+          value: "5",
+          href: "#",
+          tooltip: {content: "<span style=\"font-weight:bold;\">Iowa</span><br />the counties of Polk, Warren, Dallas and Story; Ames, Alleman, Huxley & Nevade"}
+        }
+      }
+    });
     $("#peapod").mapael({
       map: mapSettings,
       legend: legendSettings,
@@ -200,7 +211,7 @@ NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign
           tooltip: {content: "<span style=\"font-weight:bold;\">Rhode Island</span><br />"}
         }
       }
-    })
+    });
     $("#relayfoods").mapael({
       map: mapSettings,
       legend: legendSettings,
@@ -227,7 +238,6 @@ NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign
         }
       }
     });
-;
   });
 </script>
 </head>
@@ -236,7 +246,6 @@ NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign
 <div class="container">
   <div id="peapod" class="mapcontainer">
     <h1>PeaPod.com</h1>
-
     <div class="map">
       <span>Alternative content for the map</span>
     </div>
@@ -246,6 +255,15 @@ NEW! Starting May 12th we are delivering to Ames, Alleman, Huxley & Nevade! Sign
       <span>Alternative content for the legend</span>
     </div>
     <h1>Prudent Produce</h1>
+    <div class="map">
+      <span>Alternative content for the map</span>
+    </div>
+  </div>
+  <div id="test" class="mapcontainer">
+    <div class="areaLegend">
+      <span>Alternative content for the legend</span>
+    </div>
+    <h1>Test</h1>
     <div class="map">
       <span>Alternative content for the map</span>
     </div>
