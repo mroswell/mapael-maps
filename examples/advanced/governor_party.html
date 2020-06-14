@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Multiple instances</title>
+    <style type="text/css">
+        body {
+            color: #5d5d5d;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        .mapcontainer,
+        .mapcontainer2,
+        .mapcontainer3{
+            max-width: 400px;
+            margin:20px;
+            float:left;
+        }
+
+        p {
+            clear:both;
+        }
+
+        /* Specific mapael css class are below
+         * 'mapael' class is added by plugin
+        */
+
+        .mapael .mapTooltip {
+            position: absolute;
+            background-color: #fff;
+            moz-opacity: 0.70;
+            opacity: 0.70;
+            filter: alpha(opacity=70);
+            border-radius: 10px;
+            padding: 10px;
+            z-index: 1000;
+            max-width: 200px;
+            display: none;
+            color: #343434;
+        }
+
+        /* For all zoom buttons */
+        .mapael .zoomButton {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: #000;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            border-radius: 3px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            font-weight: bold;
+            left: 10px;
+
+            -webkit-user-select: none;
+            -khtml-user-select : none;
+            -moz-user-select: none;
+            -o-user-select : none;
+            user-select: none;
+        }
+
+        /* Reset Zoom button first */
+        .mapael .zoomReset {
+            top: 10px;
+        }
+
+        /* Then Zoom In button */
+        .mapael .zoomIn {
+            top: 30px;
+        }
+
+        /* Then Zoom Out button */
+        .mapael .zoomOut {
+            top: 50px;
+        }
+
+        .mapael .map {
+            background-color: #ffffff;
+            margin: 10px;
+            position: relative;
+        }
+    </style>
+
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js" charset="utf-8"></script>-->
+    <script
+        src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" charset="utf-8"></script>
+<!--                 https://cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.2.0/js/jquery.mapael.min.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js" charset="utf-8"></script>
+    <script src="../../js/jquery.mapael.min.js" charset="utf-8"></script>
+    <script src="../../js/maps/france_departments.js" charset="utf-8"></script>
+    <script src="../../js/maps/usa_states.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    var mapSettings = {
+      "name": "usa_states",
+      "defaultArea": {
+        "attrs": {
+          "stroke": "#ffffff",
+          "stroke-width": 1,
+            "fill":"blue"
+        },
+        "attrsHover": {
+          "stroke-width": 2
+        }
+      }
+    };
+    var legendSettings = {
+      area: {
+        title: "Legend",
+        slices: [
+          {
+            min: 5,
+            max: 9,
+            attrs: {
+              fill: "#BE7340"
+            },
+            label: "Serves portions of the state"
+          },
+          {
+            min: 10,
+            attrs: {
+              fill: "#e76106"
+            },
+            label: "Serves the whole state"
+          }
+        ]
+      }
+    };
+        $(function () {
+            $(".mapcontainer").mapael({
+              map: mapSettings,
+              legend: legendSettings,
+              areas: {
+                "MD": {
+                  value: "5",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Maryland</span><br />Baltimore"}
+                },
+                "VA": {
+                  value: "5",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Virginia</span><br />Charlottesville, Richmond"}
+                },
+                "DC": {
+                  value: "5",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Washington DC</span><br />"}
+                },
+                "NC": {
+                  value: "5",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">North Carolina</span><br />Raleigh, Durham and Chapel Hill, and surrounding zipcodes "}
+                }
+              }
+            });
+
+
+            var $mapcontainer2 = $(".mapcontainer2");
+            $mapcontainer2.mapael({
+              map: mapSettings,
+              legend: legendSettings,
+              areas: {
+                "CT": {
+                  value: "11",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Connecticut</span><br />"}
+                },
+                "DC": {
+                  value: "5",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Washington DC</span><br />"}
+                },
+                "IN": {
+                  value: "5",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Indiana</span><br />Indianapolis"}
+                },
+
+                "MA": {
+                  value: "10",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Massachusetts</span><br />"}
+                },
+                "MD": {
+                  value: "10",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Maryland</span><br />"}
+                },
+                "NJ": {
+                  value: "10",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">New Jersey</span><br />"}
+                },
+                "NY": {
+                  value: "10",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">New York</span><br />"}
+                },
+                "PA": {
+                  value: "5",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Pennsylvania</span><br />Philadelphia, S.E. Pennsylvania, Central Pennsylvania"}
+                },
+                "VA": {
+                  value: "10",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Virginia</span><br />"}
+                },
+                "WI": {
+                  value: "5",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Wisconsin</span><br />Milwaukee, S.E. Wisconsin"}
+                },
+                "RI": {
+                  value: "11",
+                  href: "#",
+                  tooltip: {content: "<span style=\"font-weight:bold;\">Rhode Island</span><br />"}
+                }
+              }
+            });
+
+            $(".mapcontainer3").mapael({
+              map: mapSettings,
+              legend: legendSettings,
+              areas: {}
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Multiple instances</h1>
+
+
+    <div class="mapcontainer">
+        <h2>RelayFoods</h2>
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+      <div class="areaLegend">
+        <span>Alternative content for the legend</span>
+      </div>
+    </div>
+
+    <div class="mapcontainer2">
+        <h2>PeaPod</h2>
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+      <div class="areaLegend">
+        <span>Alternative content for the legend</span>
+      </div>
+    </div>
+
+    <div class="mapcontainer3">
+        <h2>Map with multiple plotted cities legends that handle different criteria</h2>
+        <div style="margin:auto;">
+            <div class="population" style="float:left;margin-right:40px;">
+                <span>Alternative content for the legend</span>
+            </div>
+            <div class="density" style="float:left;">
+                <span>Alternative content for the legend2</span>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Seasonal Produce Charts</title>
+    <style type="text/css">
+        body {
+            color: #5d5d5d;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        /* Specific mapael css class are below
+         * 'mapael' class is added by plugin
+        */
+
+        .mapael .map {
+            position: relative;
+        }
+
+        .mapael .mapTooltip {
+            position: absolute;
+            background-color: #fff;
+            moz-opacity: 0.70;
+            opacity: 0.70;
+            filter: alpha(opacity=70);
+            border-radius: 10px;
+            padding: 10px;
+            z-index: 1000;
+            max-width: 200px;
+            display: none;
+            color: #343434;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js"
+            charset="utf-8"></script>
+    <script src="../../js/jquery.mapael.js"
+            charset="utf-8"></script>
+    <script src="../../js/maps/france_departments.js"
+            charset="utf-8"></script>
+    <script src="../../js/maps/world_countries.js"
+            charset="utf-8"></script>
+    <script src="../../js/maps/usa_states.js"
+            charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#relayfoods").mapael({
+                map: {
+                    name: "usa_states",
+                    defaultArea: {
+                        attrs: {
+                            stroke: "#fff",
+                            "stroke-width": 1,
+                            fill: "#f9e802"
+                        },
+                        attrsHover: {
+                            "stroke-width": 2
+                        }
+                    }
+                },
+                // legend: {
+                //     area: {
+                //         title: "Delivery Legend",
+                //         slices: [
+                //             {
+                //                 min: 500000,
+                //                 max: 1000000,
+                //                 attrs: {
+                //                     fill: "#ee9050"
+                //                 },
+                //                 label: "Serves portions of the state"
+                //             },
+                //             {
+                //                 min: 1000000,
+                //                 attrs: {
+                //                     fill: "#e76106"
+                //                 },
+                //                 label: "Serves the whole state"
+                //             }
+                //         ]
+                //     }
+                // },
+                areas: {
+                    "AL": {href: "https://www.farmflavor.com/alabama/whats-growing-in-alabama/",},
+                    "AK": {href: "https://www.farmflavor.com/alaska/whats-growing-in-alaska/",},
+                    "AZ": {href: "https://www.farmflavor.com/arizona/whats-growing-in-arizona/",},
+                    "AR": {href: "https://www.farmflavor.com/arkansas/whats-growing-in-arkansas/",},
+                    "CA": {href: "https://www.farmflavor.com/california/whats-growing-in-california/",},
+                    "CO": {href: "https://www.farmflavor.com/colorado/whats-growing-in-colorado/",},
+                    "CT": {href: "https://www.farmflavor.com/connecticut/whats-growing-in-connecticut/",},
+                    "DE": {href: "https://www.farmflavor.com/delaware/whats-growing-in-delaware/",},
+                    "FL": {href: "https://www.farmflavor.com/florida/whats-growing-in-florida/",},
+                    "GA": {href: "https://www.farmflavor.com/georgia/whats-growing-in-georgia/",},
+                    "HI": {href: "https://www.farmflavor.com/hawaii/whats-growing-in-hawaii/",},
+                    "ID": {href: "https://www.farmflavor.com/idaho/whats-growing-in-idaho/",},
+                    "IL": {href: "https://www.farmflavor.com/illinois/whats-growing-in-illinois/",},
+                    "IN": {href: "https://www.farmflavor.com/indiana/whats-growing-in-indiana/",},
+                    "IA": {href: "https://www.farmflavor.com/iowa/whats-growing-in-iowa/",},
+                    "KS": {href: "https://www.farmflavor.com/kansas/whats-growing-in-kansas/",},
+                    "KY": {href: "https://www.farmflavor.com/kentucky/whats-growing-in-kentucky/",},
+                    "LA": {href: "https://www.farmflavor.com/louisiana/whats-growing-in-louisiana/",},
+                    "ME": {href: "https://www.farmflavor.com/maine/whats-growing-in-maine/",},
+                    "MD": {href: "https://www.farmflavor.com/maryland/whats-growing-in-maryland/",},
+                    "MA": {href: "https://www.farmflavor.com/massachusetts/whats-growing-in-massachusetts/",},
+                    "MI": {href: "https://www.farmflavor.com/michigan/whats-growing-in-michigan/",},
+                    "MN": {href: "https://www.farmflavor.com/minnesota/whats-growing-in-minnesota/",},
+                    "MS": {href: "https://www.farmflavor.com/mississippi/whats-growing-in-mississippi/",},
+                    "MO": {href: "https://www.farmflavor.com/missouri/whats-growing-in-missouri/",},
+                    "MT": {href: "https://www.farmflavor.com/montana/whats-growing-in-montana/",},
+                    "NE": {href: "https://www.farmflavor.com/nebraska/whats-growing-in-nebraska/",},
+                    "NV": {href: "https://www.farmflavor.com/nevada/whats-growing-in-nevada/",},
+                    "NH": {href: "https://www.farmflavor.com/new-hampshire/whats-growing-in-new-hampshire/",},
+                    "NJ": {href: "https://www.farmflavor.com/new-jersey/whats-growing-in-new-jersey/",},
+                    "NM": {href: "https://www.farmflavor.com/new-mexico/whats-growing-in-new-mexico/",},
+                    "NY": {href: "https://www.farmflavor.com/new-york/whats-growing-in-new-york/",},
+                    "NC": {href: "https://www.farmflavor.com/north-carolina/whats-growing-in-north-carolina/",},
+                    "ND": {href: "https://www.farmflavor.com/north-dakota/whats-growing-in-north-dakota/",},
+                    "OH": {href: "https://www.farmflavor.com/ohio/whats-growing-in-ohio/",},
+                    "OK": {href: "https://www.farmflavor.com/oklahoma/whats-growing-in-oklahoma/",},
+                    "OR": {href: "https://www.farmflavor.com/oregon/whats-growing-in-oregon/",},
+                    "PA": {href: "https://www.farmflavor.com/pennsylvania/whats-growing-in-pennsylvania/",},
+                    "RI": {href: "https://www.farmflavor.com/rhode-island/whats-growing-in-rhode-island/",},
+                    "SC": {href: "https://www.farmflavor.com/south-carolina/whats-growing-in-south-carolina/",},
+                    "SD": {href: "https://www.farmflavor.com/south-dakota/whats-growing-in-south-dakota/",},
+                    "TN": {href: "https://www.farmflavor.com/tennessee/whats-growing-in-tennessee/",},
+                    "TX": {href: "https://www.farmflavor.com/texas/whats-growing-in-texas/",},
+                    "UT": {href: "https://www.farmflavor.com/utah/whats-growing-in-utah/",},
+                    "VT": {href: "https://www.farmflavor.com/vermont/whats-growing-in-vermont/",},
+                    "VA": {href: "https://www.farmflavor.com/virginia/whats-growing-in-virginia/",},
+                    "WA": {href: "https://www.farmflavor.com/washington/whats-growing-in-washington/",},
+                    "WV": {href: "https://www.farmflavor.com/west-virginia/whats-growing-in-west-virginia/",},
+                    "WI": {href: "https://www.farmflavor.com/wisconsin/whats-growing-in-wisconsin/",},
+                    "WY": {href: "https://www.farmflavor.com/wyoming/whats-growing-in-wyoming/",},
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Seasonal Charts</h1>
+
+    <div id="relayfoods"
+         class="mapcontainer">
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
